@@ -11,14 +11,14 @@
     "env": {
       "NODE_ENV": "production",
       "PORT": "7777",
-      "DATABASE_ENDPOINT": "@database_endpoint",
+      "DATABASE_ENDPOINT": "@afrotech_events_database_endpoint",
       "FRONTEND_URL": "https://afrotech.events"
     }
   },
   "env": {
     "NODE_ENV": "production",
     "PORT": "7777",
-    "DATABASE_ENDPOINT": "@database_endpoint",
+    "DATABASE_ENDPOINT": "@afrotech_events_database_endpoint",
     "FRONTEND_URL": "https://fiveyards.app"
   }
 }
