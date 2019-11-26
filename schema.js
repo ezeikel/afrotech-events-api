@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express');
 const { GraphQLScalarType } = require('graphql');
+const { Kind } = require('graphql/language');
 const mongoose = require('mongoose');
+const Event = mongoose.model('Event');
 
 // defining "shape" of data
 module.exports.typeDefs = gql`
@@ -47,7 +49,7 @@ module.exports.resolvers = {
       return value.getTime(); // value sent to client
     },
     parseLiteral(ast) {
-      if (ast.kind === kind.INT) {
+      if (ast.kind === Kind.INT) {
         return new Date(ast.value); // ast value is always in string format
       }
       return null;

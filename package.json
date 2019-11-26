@@ -1,7 +1,12 @@
 {
   "name": "afrotech-events-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "scripts": {
+    "start": "node ./start.js",
+    "watch": "nodemon ./start.js",
+    "dev": "yarn bake-env && yarn watch",
+    "bake-env": "node ./scripts/process.env-generator.js"
+  },
   "repository": "git@github.com:ezeikel/afrotech-events-api.git",
   "author": "Ezeikel <hi@ezeikel.dev>",
   "license": "MIT",
