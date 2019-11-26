@@ -14,8 +14,7 @@ const eventSchema = new Schema({
     trim: true,
     required: 'Please enter an event host'
   },
-  date: Number,
-  time: Number,
+  date: Date,
   address: {
     type: String,
     trim: true,
