@@ -28,6 +28,8 @@ module.exports.typeDefs = gql`
       name: String!
       host: String!
       date: Date!
+      startTime: Date!
+      endTime: Date!
       address: String!
       rsvpLink: String
       notes: String
@@ -69,10 +71,21 @@ module.exports.resolvers = {
     events: () => Event.find()
   },
   Mutation: {
-    createEvent: async (_, data, context) => {
-      console.log({ data });
+    createEvent: async (_, { name, host, date, startTime, endTime, address, resvpLink, notes }, context) => {
+      // TODO: Make sure this works
+      const duration = (endTime.getTime() - startTime.getTime()) / 1000;
 
-      const event = await Event(data).save();
+      const convertedDate = new Date(`${date} ${startTime}`);
+
+      const event = await Event({
+        name,
+        host,
+        date: convertedDate,
+        duration,
+        address,
+        resvpLink,
+        notes
+      }).save();
 
       return event;
     },
