@@ -18,6 +18,7 @@ module.exports.typeDefs = gql`
     name: String!
     host: String!
     date: Date!
+    duration: Int!
     address: String!
     rsvpLink: String
     notes: String
