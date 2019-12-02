@@ -3,6 +3,7 @@ const { Schema } = mongoose;
 mongoose.Promise = global.Promise;
 
 // document structure
+// TODO: add approved: Boolean
 const eventSchema = new Schema({
   name: {
     type: String,
