@@ -2,7 +2,7 @@
   "version": 2,
   "name": "afrotech-events-api",
   "builds": [
-      { "src": "api/index.js", "use": "@now/node-server" }
+      { "src": "api/index.js", "use": "@now/node" }
   ],
   "routes": [
       { "src": "/.*", "dest": "api/index.js" }
@@ -14,5 +14,11 @@
       "DATABASE_ENDPOINT": "@afrotech_events_database_endpoint",
       "FRONTEND_URL": "https://afrotech.events"
     }
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "7777",
+    "DATABASE_ENDPOINT": "@afrotech_events_database_endpoint",
+    "FRONTEND_URL": "https://fiveyards.app"
   }
 }
