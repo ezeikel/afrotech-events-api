@@ -10,7 +10,7 @@ const { typeDefs, resolvers } = require('./schema');
 const app = express();
 
 // enable cors
-const allowedOrigins = [/(http:\/\/localhost:.*)/, /(https:\/\/afrotech-events-.*\.now\.sh$)/, 'https://afrotech.events', 'https://api.afrotech.events'];
+const allowedOrigins = [/(http?:\/\/localhost:.*)/, /(https?:\/\/afrotech-events-.*\.now\.sh$)/, /(https?:\/\/(\S*\.)?afrotech\.events)/];
 const corsOptions = {
   optionsSuccessStatus: 200,
   origin: (origin, callback) => {
