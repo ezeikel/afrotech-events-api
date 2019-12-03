@@ -10,12 +10,11 @@ const { typeDefs, resolvers } = require('./schema');
 const app = express();
 
 // enable cors
-const allowedOrigins = ['http://localhost:8000', 'http://localhost:8001', 'https://afrotech.events', 'http://localhost:7777', 'https://api.afrotech.events'];
+const allowedOrigins = [/(http:\/\/localhost:.*)/, /(https:\/\/afrotech-events-api-.*\.now\.sh$)/, 'https://afrotech.events', 'https://api.afrotech.events'];
 const corsOptions = {
   optionsSuccessStatus: 200,
   origin: (origin, callback) => {
-    // origin is undefined if same-origin
-    if (allowedOrigins.includes(origin) || origin === undefined) {
+    if (allowedOrigins.includes(origin) || allowedOrigins.filter(allowedOrigin => allowedOrigin.test && allowedOrigin.test(origin)).length || origin === undefined) {
       callback(null, true);
     } else {
       callback(new Error(`${origin} is not allowed by CORS.`));
