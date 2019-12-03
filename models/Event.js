@@ -24,6 +24,10 @@ const eventSchema = new Schema({
   },
   rsvpLink: String,
   notes: String,
+  verified: {
+    type: Boolean,
+    default: false
+  }
 });
 
 // compile model and export
