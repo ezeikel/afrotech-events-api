@@ -7,11 +7,6 @@
   "routes": [
       { "src": "/.*", "dest": "api/index.js" }
   ],
-  "build": {
-    "env": {
-      "DATABASE_ENDPOINT": "@afrotech_events_database_endpoint"
-    }
-  },
   "env": {
     "PORT": "7777",
     "DATABASE_ENDPOINT": "@afrotech_events_database_endpoint"
