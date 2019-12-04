@@ -5,6 +5,21 @@ const cookierParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const { ApolloServer } = require("apollo-server-express");
 const { typeDefs, resolvers } = require('./schema');
+const fetch = require("isomorphic-fetch");
+const Event = mongoose.model('Event');
+
+// mongodb change stream to hit Zeit webhook and trigger gatsby build when Event collection updates
+Event.watch().
+  on("change", async data => {
+    const zeitWebhookUrl =
+      "https://api.zeit.co/v1/integrations/deploy/QmUpRUsPXKAhiTQGW5QvUCVRkD8sctrLkX4sc1axzd2ucV/wNGEjnFSQW";
+
+    console.log(new Date(), data);
+
+    await fetch(zeitWebhookUrl, {
+      method: "POST"
+    });
+  });
 
 // create express app
 const app = express();
