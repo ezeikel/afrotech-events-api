@@ -22,7 +22,7 @@ module.exports.typeDefs = gql`
     address: String!
     rsvpLink: String
     notes: String
-    verified: Boolean
+    verified: Boolean!
   }
 
   type Mutation {
