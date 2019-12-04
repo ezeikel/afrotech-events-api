@@ -29,7 +29,7 @@ const allowedOrigins = [/(http?:\/\/localhost:.*)/, /(https?:\/\/afrotech-events
 const corsOptions = {
   optionsSuccessStatus: 200,
   origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || allowedOrigins.filter(allowedOrigin => allowedOrigin.test && allowedOrigin.test(origin)).length || origin === undefined) {
+    if (allowedOrigins.filter(allowedOrigin => allowedOrigin.test && allowedOrigin.test(origin)).length || origin === undefined) {
       callback(null, true);
     } else {
       callback(new Error(`${origin} is not allowed by CORS.`));

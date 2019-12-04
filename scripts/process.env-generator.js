@@ -7,7 +7,6 @@ const defaults = require("../process.defaults");
 const keys = [
   "PORT",
   "DATABASE_ENDPOINT",
-  "FRONTEND_URL",
 ];
 
 let contents =
